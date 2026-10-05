@@ -9,7 +9,7 @@
 <body>
     
   <header>
-    <a href="#" class="logo">Logo</a>
+    <a href="#" class="logo">Cyber</a>
 
     <nav>
         <a href="#">Home</a>
@@ -29,6 +29,9 @@
 
   <!--For Login-->
   <div class="auth-modal">
+    <button type="button" class="close-btn-modal">X</button>
+
+
      <div class="form-box login">
       <h2>Login</h2>
         <form action="">
@@ -44,6 +47,30 @@
 
           <button type="submit" name="login_btn" class="btn">Login</button>
           <p>Don't have the account? <a href="#" class="register-link">Register</a></p>
+        </form>
+     </div>
+
+     <!--Registration form-->
+     <div class="form-box register">
+      <h2>Register</h2>
+        <form action="">
+          <div class="input-box">
+            <label>Name:</label>
+             <input type="text" name="name" placeholder="Please put your name here" required />
+          </div>
+
+          <div class="input-box">
+            <label>Email:</label>
+             <input type="email" name="email" placeholder="Please put your email here" required />
+          </div>
+
+          <div class="input-box">
+            <label>Password:</label>
+             <input type="password" name="password" placeholder="Please put your password here" required />
+          </div>
+
+          <button type="submit" name="register_btn" class="btn">Register</button>
+          <p>Already have an account? <a href="#" class="login-link">Login</a></p>
         </form>
      </div>
   </div>
