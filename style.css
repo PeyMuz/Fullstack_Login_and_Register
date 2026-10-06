@@ -106,11 +106,37 @@ section h1{
     margin: auto;
     display: flex;
     align-items: center;
+    overflow: hidden; /*to hide the Login or reg form if each one of them is clicked*/
+    transform:scale(0); /*to make the */
+    transition: height .2s ease, transform .5s ease; /*Transition animation para sa height slide ng reg form. Also if the login button from the navbar is clicked, it will pop up animated the log in form*/
+}
+
+/*To show the login form*/
+.auth-modal.show{
+    transform: scale(1);
+}
+
+/*Transition para sa regform*/
+.auth-modal.slide {
+    height: 520px;
 }
 
 .auth-modal .form-box{
     width: 100%;
     padding: 40px;
+}
+
+
+/*This will slide the login and reg container*/
+.auth-modal .form-box.login,
+.auth-modal.slide .form-box.register{
+    transform: translateX(0);
+    transition: transform .18s ease;
+}
+
+.auth-modal.slide .form-box.login {
+    transform: translateX(-400px);
+    transition: none;
 }
 
 
@@ -189,3 +215,28 @@ section h1{
     z-index: 1;
 }
 
+/*For the Icon*/
+.profile-box .avatar-circle{
+    width: 40px;
+    height: 40px;
+    background: #fff;
+    border-radius: 50%;
+    line-height: 40px;
+    text-align: center;
+    font-size: 25px;
+    color: #222;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/*For the Dropdown*/
+.profile-box .dropdown{
+   position: absolute;
+   top: 85px;
+   right: 100px;
+   padding: 10px;
+   background: #fff;
+   border-radius: 8px;
+   display: flex;
+   flex-direction: column;
+}
