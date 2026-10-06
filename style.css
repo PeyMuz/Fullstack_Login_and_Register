@@ -239,4 +239,26 @@ section h1{
    border-radius: 8px;
    display: flex;
    flex-direction: column;
+   opacity: 0;
+   pointer-events: none;
+}
+
+.profile-box.show .dropdown {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.profile-box .dropdown a{
+    padding: 6px 12px;
+    border-radius: 4px;
+    color: #222;
+    text-decoration: none;
+    font-weight: 500;
+    margin: 2px 0;
+    transition: .2s;
+}
+
+.profile-box .dropdown a:hover{
+    background: #eee;
 }
