@@ -5,6 +5,7 @@ const loginBtnModal = document.querySelector('.login-btn-modal');
 const closeBtnModal = document.querySelector('.close-btn-modal');
 const avatarCircle = document.querySelector('.avatar-circle');
 const profileBox = document.querySelector('.profile-box');
+const alertBox = document.querySelector('.alert-box');
 
 registerLink.addEventListener("click", () => authModal.classList.add('slide'));
 loginModal.addEventListener("click", () => authModal.classList.remove('slide'));
@@ -17,3 +18,12 @@ closeBtnModal.addEventListener("click", () => authModal.classList.remove('show',
 //for Dropdown
 
 avatarCircle.addEventListener("click",() => profileBox.classList.toggle("show"))
+
+//to display the alert
+setTimeout(() => alertBox.classList.add('show'), 50);
+
+//to remove the alert after 6 seconds
+setTimeout(() => {
+    alertBox.classList.remove('show');
+    setTimeout(() => alertBox.remove(), 1000);
+}, 6000);
