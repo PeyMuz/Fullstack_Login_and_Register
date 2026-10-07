@@ -16,4 +16,4 @@ closeBtnModal.addEventListener("click", () => authModal.classList.remove('show',
 
 //for Dropdown
 
-avatarCircle.addEventListener("click",() => authModal.classList.toggle("show"))
+avatarCircle.addEventListener("click",() => profileBox.classList.toggle("show"))

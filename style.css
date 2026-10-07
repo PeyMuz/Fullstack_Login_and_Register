@@ -227,7 +227,9 @@ section h1{
     color: #222;
     font-weight: 600;
     cursor: pointer;
+    transition: .5s;
 }
+
 
 /*For the Dropdown*/
 .profile-box .dropdown{
@@ -239,15 +241,18 @@ section h1{
    border-radius: 8px;
    display: flex;
    flex-direction: column;
+   transform: translateY(-10px);
    opacity: 0;
    pointer-events: none;
+   transition: .5s;
 }
 
-.profile-box.show .dropdown {
+.profile-box.show .dropdown{
     transform: translateY(0);
     opacity: 1;
     pointer-events: auto;
 }
+
 
 .profile-box .dropdown a{
     padding: 6px 12px;
@@ -257,8 +262,4 @@ section h1{
     font-weight: 500;
     margin: 2px 0;
     transition: .2s;
-}
-
-.profile-box .dropdown a:hover{
-    background: #eee;
 }
