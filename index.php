@@ -49,7 +49,7 @@
 
      <div class="form-box login">
       <h2>Login</h2>
-        <form action="">
+        <form action="auth_process.php" method="POST">
           <div class="input-box">
             <label>Email:</label>
              <input type="email" name="email" placeholder="Please put your email here" required />
@@ -68,7 +68,7 @@
      <!--Registration form-->
      <div class="form-box register">
       <h2>Register</h2>
-        <form action="">
+        <form action="auth_process.php" method="POST">
           <div class="input-box">
             <label>Name:</label>
              <input type="text" name="name" placeholder="Please put your name here" required />
