@@ -45,7 +45,7 @@ if ($name !== null) $_SESSION['name'] = $name; //the username will be remain eve
            <div class="avatar-circle"><?= htmlspecialchars(mb_strtoupper(mb_substr($name, 0, 1))) ?></div> <?php // the name of the user will capitalize and the icon will be the first letter of their name or Username. ?>
            <div class="dropdown">
                 <a href="#">My Account</a>
-                <a href="#">Logout</a>
+                <a href="logout.php">Logout</a>
            </div>
          </div>
          <?php else: // if the user is not logged in, the button will displayed. ?>

@@ -74,6 +74,7 @@ nav a:hover{
 /*For background so it can cover fully the wallpaper the whole background*/
 section {
     min-height: 100vh;
+    min-height: 100dvh; /*para tama ang taas sa mobile browsers (yung address bar)*/
     background: url('vi.jpg') no-repeat;
     background-size: cover;
     background-position: center bottom;
@@ -95,6 +96,7 @@ section h1{
 .auth-modal{
     position: fixed;
     width: 420px;
+    max-width: 92vw; /*para hindi lumampas sa maliit na screen*/
     height: 440px;
     background: rgba(0,0,0, .3);
     border: 2px solid rgba(255,255,255, .3);
@@ -135,14 +137,14 @@ section h1{
 }
 
 .auth-modal.slide .form-box.login {
-    transform: translateX(-400px);
+    transform: translateX(-100%); /*100% ng sarili niya, kaya gumagana kahit gaano kaliit ang modal*/
     transition: none;
 }
 
 
 .auth-modal .form-box.register{
     position: absolute;
-    transform: translateX(400px); /*So the register form can move to the right*/
+    transform: translateX(100%); /*So the register form can move to the right*/
 }
 
 .form-box h2{
@@ -282,7 +284,13 @@ section h1{
     text-decoration: none;
     font-weight: 500;
     margin: 2px 0;
-    transition: .2s;
+    transition: background-color .25s ease, transform .25s ease; /*background-color at transform lang ang ina-animate para smooth (60fps)*/
+}
+
+/*Hover ng dropdown links*/
+.profile-box .dropdown a:hover{
+    background: #aaa1c9; /*light purple na bagay sa wallpaper*/
+    transform: translateX(4px); /*bahagyang usog pakanan*/
 }
 
 
@@ -328,7 +336,7 @@ section h1{
     flex: 1;
     min-width: 0;
     font-size: 14.5px;
-    line-height: 1.4px; /*kapareho ng taas ng icon para eksaktong magka-level sila*/
+    line-height: 1.4; /*FIXED: walang px, para multiplier ng font-size at pareho sa lahat ng screen*/
     text-align: left;
 }
 
@@ -373,4 +381,130 @@ section h1{
 
 .alert-box .alert.error i {
     color: #f00;
+}
+
+
+/*-----FOR RESPONSIVE (LAPTOP / TABLET / PHONE)-----*/
+
+/*Tablet at maliit na laptop*/
+@media (max-width: 900px){
+    header{
+        padding: 15px 40px;
+    }
+
+    .logo{
+        font-size: 26px;
+    }
+
+    nav a{
+        font-size: 17px;
+        margin-left: 22px;
+    }
+
+    .user-auth{
+        margin-left: 22px;
+    }
+
+    section{
+        padding: 0 40px;
+    }
+
+    .profile-box .dropdown{
+        top: 75px;
+        right: 40px;
+    }
+}
+
+/*Phone*/
+@media (max-width: 600px){
+    header{
+        padding: 12px 20px;
+    }
+
+    .logo{
+        font-size: 22px;
+    }
+
+    /*Tinago ang nav links kasi hindi kasya sa phone. Logo + Login/Avatar na lang*/
+    nav{
+        display: none;
+    }
+
+    .user-auth{
+        margin-left: 0;
+    }
+
+    .user-auth .login-btn-modal{
+        height: 36px;
+        padding: 0 22px;
+        font-size: 16px;
+    }
+
+    section{
+        padding: 0 20px;
+    }
+
+    section h1{
+        font-size: 20px;
+    }
+
+    .profile-box .dropdown{
+        top: 65px;
+        right: 20px;
+    }
+
+    .auth-modal .form-box{
+        padding: 30px 25px;
+    }
+
+    .form-box h2{
+        font-size: 30px;
+    }
+
+    .alert-box{
+        top: 20px;
+        min-width: 0;
+        width: 90vw;
+    }
+
+    .alert-box .alert{
+        padding: 14px 16px;
+    }
+}
+
+/*Para sa mga laptop o screen na maikli ang taas, para hindi lumampas ang modal*/
+@media (max-height: 700px){
+    .auth-modal{
+        height: 400px;
+    }
+
+    .auth-modal.slide{
+        height: 560px;
+        max-height: 96vh;
+    }
+
+    .auth-modal .form-box{
+        padding-block: 22px;
+    }
+
+    .form-box h2{
+        font-size: 28px;
+    }
+
+    .input-box{
+        margin: 8px 0;
+    }
+
+    .input-box input{
+        height: 40px;
+    }
+
+    .btn{
+        height: 40px;
+        margin-top: 12px;
+    }
+
+    .form-box p{
+        margin: 15px 0 5px;
+    }
 }
