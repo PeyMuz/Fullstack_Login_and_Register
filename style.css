@@ -76,7 +76,7 @@ section {
     min-height: 100vh;
     background: url('vi.jpg') no-repeat;
     background-size: cover;
-    background-position: center;
+    background-position: center bottom;
     padding: 0 100px;
 }
 
@@ -118,7 +118,7 @@ section h1{
 
 /*Transition para sa regform*/
 .auth-modal.slide {
-    height: 520px;
+    height: 610px;
 }
 
 .auth-modal .form-box{
@@ -153,25 +153,41 @@ section h1{
 .input-box{
     position: relative;
     width: 100%;
-    height: 50px;
-    margin: 30px 0;
+    margin: 12px 0;
+}
+
+/*For the label sa taas ng input*/
+.input-box label{
+    display: block;
+    font-size: 14px;
+    line-height: 18px;
+    margin: 0 0 4px 8px;
 }
 
 .input-box input{
     width: 100%;
-    height: 100%;
+    height: 46px;
     background: transparent;
     border: 2px solid rgba(255,255,255, .3);
     outline: none;
     border-radius: 40px;
     font-size: 16px;
     color: #fff;
-    padding: 20px 45px 20px 20px;
+    padding: 0 20px;
 }
 
 
 .input-box input::placeholder{
     color:#fff;
+}
+
+/*Para hindi maging light blue yung input pag nag-autofill si Chrome*/
+.input-box input:-webkit-autofill,
+.input-box input:-webkit-autofill:hover,
+.input-box input:-webkit-autofill:focus{
+    -webkit-text-fill-color: #fff;
+    caret-color: #fff;
+    transition: background-color 5000s ease-in-out 0s;
 }
 
 
@@ -195,6 +211,11 @@ section h1{
     margin: 25px 0 10px;
 }
 
+.form-box p a {
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+}
 
 .form-box p a:hover {
     text-decoration: underline;
@@ -269,17 +290,18 @@ section h1{
 
 .alert-box {
     position: fixed;
-    inset: 0;
     top: 35px;
+    left: 0;
+    right: 0;
     margin: 0 auto;
-    width: 350px;
-    height: 70px;
+    width: max-content; /*auto ang lapad base sa haba ng message, kaya kasya sa isang linya*/
+    min-width: 300px;
+    max-width: 90vw;
     background: #fff;
     border-radius: 6px;
-    padding: 0 15px;
     z-index: 100;
     overflow: hidden;
-    transform: translateY(calc(-200%));
+    transform: translateY(calc(-100% - 60px)); /*itinatago sa taas, kahit gaano kataas ang alert*/
     transition: .5s ease; /*This will make the alert appeared and hide smoothly*/
 }
 
@@ -287,18 +309,32 @@ section h1{
     transform: translateY(0);
 }
 
-/*To align the icon vertically*/
-.alert-success{
+/*To align the icon and text on the same line*/
+/*Lahat ng alert styles ay nakalimita sa loob ng .alert-box para hindi magulo kahit anong class ng outer div*/
+.alert-box .alert{
+    position: relative; /*para yung progress bar ay nasa pinakababa ng mismong alert*/
     display: flex;
-    align-items: center;
-    height: 100%;
+    flex-direction: row;
+    align-items: center; /*naka-center vertically ang icon at text*/
+    gap: 12px;
+    padding: 16px 24px; /*pantay na taas at baba para eksaktong centered ang laman*/
     color: #222;
     font-weight: 500;
+    text-align: left;
 }
 
-.alert::after{
+/*Text ng alert*/
+.alert-box .alert span{
+    flex: 1;
+    min-width: 0;
+    font-size: 14.5px;
+    line-height: 1.4px; /*kapareho ng taas ng icon para eksaktong magka-level sila*/
+    text-align: left;
+}
+
+.alert-box .alert::after{
     content: '';
-    position: absolute;
+    position: absolute; /*nakapatong lang sa pinakababa, hindi nakadagdag sa taas ng alert*/
     bottom: 0;
     left: 0;
     width: 100%;
@@ -309,7 +345,7 @@ section h1{
 
 
 /*For error*/
-.alert.error::after{
+.alert-box .alert.error::after{
     background: #f00;
 }
 
@@ -321,12 +357,20 @@ section h1{
 }
 
 
-.alert i {
-    font-size: 35px;
+/*Icon: nasa sarili niyang 28px na kahon at naka-center sa loob, hindi lumiliit*/
+.alert-box .alert i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    font-size: 28px;
+    line-height: 1;
+    margin: 0;
     color: #0abf30;
-    margin-right: 8px;
 }
 
-.alert.error i {
+.alert-box .alert.error i {
     color: #f00;
 }

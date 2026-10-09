@@ -12,14 +12,15 @@ loginModal.addEventListener("click", () => authModal.classList.remove('slide'));
 
 
 //This code functions if the user clicked the login button from the navbar. It will also close if the user clicked X btn.
-loginBtnModal.addEventListener("click", () => authModal.classList.add('show'));
+if (loginBtnModal) loginBtnModal.addEventListener("click", () => authModal.classList.add('show'));
 closeBtnModal.addEventListener("click", () => authModal.classList.remove('show', 'slide'));
 
 //for Dropdown
 
-avatarCircle.addEventListener("click",() => profileBox.classList.toggle("show"))
+if (avatarCircle) avatarCircle.addEventListener("click",() => profileBox.classList.toggle("show"))
 
-//to display the alert
+if (alertBox) { // i put them in the alert if. To prevent errors not being found or html structure.
+  //to display the alert
 setTimeout(() => alertBox.classList.add('show'), 50);
 
 //to remove the alert after 6 seconds
@@ -27,3 +28,6 @@ setTimeout(() => {
     alertBox.classList.remove('show');
     setTimeout(() => alertBox.remove(), 1000);
 }, 6000);
+}
+
+
